@@ -21,7 +21,8 @@ class App extends Component {
     return(
       <ApolloProvider client={client}>
         <Router>
-          <Route path="/" render={() => <h1>Root Route</h1>} />
+          <Route exact path="/" render={() => <h1>Root Route</h1>} />
+          <Route exact path="/countries" render={() => <h1>List of countries</h1>} />
         </Router>
       </ApolloProvider>
     )
