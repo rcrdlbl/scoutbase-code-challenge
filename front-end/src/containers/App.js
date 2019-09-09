@@ -26,7 +26,8 @@ class App extends Component {
         <Router>
           <Switch>
           <Route exact path="/" render={() => <h1>Root Route</h1>} />
-          <Route path="/countries" render={() => <h1>List of countries</h1>} />
+          <Route exact path="/countries" render={() => <h1>List of countries</h1>} />
+          <Route path="/countries/:countryCode" render={ ({match}) => <h1>{match.params.countryCode}</h1> } />
           <Route component={NoMatch} />
           </Switch>
         </Router>
