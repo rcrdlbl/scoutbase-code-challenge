@@ -9,6 +9,7 @@ import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-boost'
 
 import NoMatch from '../components/NoMatch'
 import Home from './Home'
+import CountriesContainer from './CountriesContainer'
 
 const cache = new InMemoryCache()
 const link = new HttpLink({
@@ -27,7 +28,7 @@ class App extends Component {
         <Router>
           <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/countries" render={() => <h1>List of countries</h1>} />
+          <Route exact path="/countries" component={CountriesContainer} />
           <Route path="/countries/:countryCode" render={ ({match}) => <h1>{match.params.countryCode}</h1> } />
           <Route component={NoMatch} />
           </Switch>
