@@ -3,12 +3,13 @@ import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
 import styled from 'styled-components'
 
+import CountryListItem from '../components/CountryListItem'
+
 const COUNTRIES = gql`
   {
     countries {
       code
       name
-      native
       continent { name }
       languages {
         name
@@ -24,10 +25,8 @@ const CountryListContainer = () => {
   if (loading) return <h3>Loading</h3>
   if (error) return <h3>Error</h3>
 
-  return data.countries.map(({code, name, native}) => (
-    <div key={code}>
-      <h3><a href={"/countries/" + code}>{name} | {native}</a></h3>
-    </div>
+  return data.countries.map((country) => (
+    <CountryListItem key={country.code} country={country}></CountryListItem>
   ))
 }
 

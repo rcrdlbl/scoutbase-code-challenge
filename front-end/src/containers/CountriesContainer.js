@@ -7,6 +7,7 @@ import CountryListContainer from './CountryListContainer'
 const listContainer = styled.div`
   margin: 0 auto;
   padding: 0 50px;
+  display: flex;
 `
 
 const navContainer = styled.header`
