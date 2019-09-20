@@ -6,10 +6,31 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7f7f7;
-  color: #575657; 
+  color: #575657;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+a:link {
+  color: #575657;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #575657;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #575657;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #575657;
+  text-decoration: underline;
 }
