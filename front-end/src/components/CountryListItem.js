@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { withRouter } from 'react-router'
+
 
 const ItemContainer = styled.div`
 margin: 0.5rem;
@@ -68,7 +70,7 @@ class CountryListItem extends Component {
 
   render() {
     return(
-      <ItemContainer>
+      <ItemContainer onClick={() => this.props.history.push("/countries/" + this.props.country.code)}>
         <CountryName>{this.props.country.name}</CountryName>
         <CountryContinent>{this.props.country.continent.name}</CountryContinent>
           <LangListContainer>
@@ -88,4 +90,4 @@ class CountryListItem extends Component {
   }
 }
 
-export default CountryListItem
+export default withRouter(CountryListItem)
