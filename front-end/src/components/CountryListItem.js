@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const ItemContainer = styled.div`
-margin: 5px;
-border: 0.75px solid #575657;
-border-radius: 3px;
+margin: 0.5rem;
+background-color: #FEFEFA;
+box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+border-radius: 10px;
 display: inline-block;
 height: 100%;
-padding-left: 5px;
-padding-right: 5px;
+padding-left: 1em;
+padding-right: 1em;
 `
 
 const CountryName = styled.p`
@@ -24,7 +25,7 @@ margin-top: 0;
 
 const LangListContainer = styled.div`
 display: inline-block;
-border-top: 1px solid #575657;
+border-top: 0.5px solid #575657;
 width: 100%;
 `
 
