@@ -4,45 +4,50 @@ import { withRouter } from 'react-router'
 
 
 const ItemContainer = styled.div`
-margin: 0.5rem;
-background-color: #FEFEFA;
-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
-border-radius: 10px;
-display: inline-block;
-height: 100%;
-padding-left: 1em;
-padding-right: 1em;
+  margin: 0.5rem;
+  background-color: #FEFEFA;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  display: inline-block;
+  height: 100%;
+  padding-left: 1em;
+  padding-right: 1em;
+  transition: all .1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
 const CountryName = styled.p`
-font-size: 0.8em;
-font-weight: bold;
-margin-bottom: 2px;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin-bottom: 2px;
 `
 
 const CountryContinent = styled.p`
-font-size: 0.65em;
-margin-top: 0;
+  font-size: 0.65em;
+  margin-top: 0;
 `
 
 const LangListContainer = styled.div`
-display: inline-block;
-border-top: 0.5px solid #575657;
-width: 100%;
+  display: inline-block;
+  border-top: 0.5px solid #575657;
+  width: 100%;
 `
 
 const EnglishLangNames = styled.div`
-display: inline-block;
-margin-right: 1em;
+  display: inline-block;
+  margin-right: 1em;
 `
 
 const NativeLangNames = styled.div`
-display: inline-block;
+  display: inline-block;
 `
 
 const LangList = styled.ul`
-padding-left: 0.8rem;
-display: inline-block;
+  padding-left: 0.8rem;
+  display: inline-block;
 `
 
 const LangListItem = styled.li`
