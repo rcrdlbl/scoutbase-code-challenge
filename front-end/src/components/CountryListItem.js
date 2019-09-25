@@ -15,7 +15,7 @@ const ItemContainer = styled.div`
   transition: all .1s ease-in-out;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `
 
