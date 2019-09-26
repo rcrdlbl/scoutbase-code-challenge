@@ -46,7 +46,7 @@ class CountriesContainer extends Component {
         <SortLink onClick={() => this.setState({sortBy: "language"})} active={this.state.sortBy === "language" ? true : false}>Language</SortLink>
       </NavContainer>
       <ListContainer>
-        <CountryListContainer />
+        <CountryListContainer sortBy={this.state.sortBy} />
       </ListContainer>
       </>
     )
