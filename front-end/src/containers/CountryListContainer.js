@@ -87,6 +87,8 @@ const CountryListContainer = (props) => {
       break
   }
 
+  // Return sorted countries
+
   Object.keys(listItems).sort().forEach(function(prop) {
     results.push(<CountryGroupHeader key={prop}>{prop}</CountryGroupHeader>)
     listItems[prop].map((country) => (
