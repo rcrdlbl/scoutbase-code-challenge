@@ -13,20 +13,34 @@ const ListContainer = styled.div`
 
 const NavContainer = styled.header`
   display: block;
-  padding: 0 auto;
+  padding: 1em;
   margin-bottom: 1.25em;
   margin-top: 1em;
   overflow-x: scroll;
 `
 
-const SortLink = styled.a.attrs(props => ({
+const SortLink = styled.div.attrs(props => ({
   active: props.active ? "underline" : "none"
 }))`
+  display: inline-block;
   font-size: 2.5em;
   font-weight: 700;
   margin-left: 1em;
+  background: #575657;
+  color: #FEFEFA;
+  padding: 0.25em;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
 
   text-decoration: ${props => props.active};
+
+  transition: all .1s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  z-index: 2;
 `
 
 class CountriesContainer extends Component {

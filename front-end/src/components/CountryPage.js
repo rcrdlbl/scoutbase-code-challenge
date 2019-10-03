@@ -21,7 +21,7 @@ const PageContainer = styled.div`
 `
 
 const MarqueeContainer = styled.div`
-  font-family: "Not Courier Sans";
+  font-family: "IBM Plex Mono Light", monospace;
   background: #575657;
   color: #FEFEFA;
   font-size: 1.75em;
@@ -67,7 +67,6 @@ const SecondMarqueeText = styled.span`
 `
 
 const InfoText = styled.div`
-  font-family: "Minion Pro Display";
   font-size 2.75em;
   font-weight: bold;
   padding-right: 2em;

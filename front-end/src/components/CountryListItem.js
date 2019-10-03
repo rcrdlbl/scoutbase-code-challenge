@@ -13,6 +13,7 @@ const ItemContainer = styled.div`
   padding-left: 1em;
   padding-right: 1em;
   transition: all .1s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.05);
@@ -26,13 +27,13 @@ const CountryName = styled.p`
 `
 
 const CountryContinent = styled.p`
-  font-family: "Not Courier Sans";
+  font-family: "IBM Plex Mono Light", monospace;
   font-size: 0.85em;
   margin-top: 0;
 `
 
 const LangListContainer = styled.div`
-  font-family: "Not Courier Sans";
+  font-family: "IBM Plex Mono Light", monospace;
   font-weight: 700;
   display: inline-block;
   border-top: 0.5px solid #575657;
