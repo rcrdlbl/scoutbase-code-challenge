@@ -21,6 +21,7 @@ const PageContainer = styled.div`
 `
 
 const MarqueeContainer = styled.div`
+  font-family: "Not Courier Sans";
   background: #575657;
   color: #FEFEFA;
   font-size: 1.75em;
@@ -66,9 +67,11 @@ const SecondMarqueeText = styled.span`
 `
 
 const InfoText = styled.div`
+  font-family: "Minion Pro Display";
   font-size 2.75em;
   font-weight: bold;
-  margin-left: 1.15em;
+  padding-right: 2em;
+  padding-left: 2em;
   padding-bottom: 2em;
   line-height: 1.4;
 `
@@ -97,15 +100,15 @@ function CountryPage({ match }) {
           {data.country.name} {data.country.emoji} {data.country.native} {data.country.emoji}
         </FirstMarqueeText>
         <SecondMarqueeText>
-          {data.country.name} {data.country.emoji} {data.country.native} {data.country.emoji}
+           {data.country.name} {data.country.emoji} {data.country.native} {data.country.emoji}
         </SecondMarqueeText>
       </MarqueeContainer>
     <InfoText>
-      <InfoEmphasis>{data.country.name}</InfoEmphasis> is a country in <InfoEmphasis>{data.country.continent.name}</InfoEmphasis>. They like to spend <InfoEmphasis>{data.country.currency}</InfoEmphasis>.
+      <InfoEmphasis>{data.country.name}</InfoEmphasis> is a country in <InfoEmphasis>{data.country.continent.name}</InfoEmphasis>. Their official currency is <InfoEmphasis>{data.country.currency}</InfoEmphasis>.
     </InfoText>
 
     <InfoText>
-      If you'd like to find out more about <InfoEmphasis>{data.country.name}</InfoEmphasis>, you can call any valid phone number that starts with <InfoEmphasis>+{data.country.phone}</InfoEmphasis>.
+      If you'd like to find out more about <InfoEmphasis>{data.country.name}</InfoEmphasis>, you can try calling any valid phone number that starts with <InfoEmphasis>+{data.country.phone}</InfoEmphasis>.
     </InfoText>
 
   </PageContainer>

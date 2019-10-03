@@ -26,11 +26,14 @@ const CountryName = styled.p`
 `
 
 const CountryContinent = styled.p`
-  font-size: 0.65em;
+  font-family: "Not Courier Sans";
+  font-size: 0.85em;
   margin-top: 0;
 `
 
 const LangListContainer = styled.div`
+  font-family: "Not Courier Sans";
+  font-weight: 700;
   display: inline-block;
   border-top: 0.5px solid #575657;
   width: 100%;
@@ -51,7 +54,7 @@ const LangList = styled.ul`
 `
 
 const LangListItem = styled.li`
-  font-size: 0.65em;
+  font-size: 0.75em;
 `
 
 class CountryListItem extends Component {

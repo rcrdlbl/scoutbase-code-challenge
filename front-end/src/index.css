@@ -14,6 +14,18 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: "Not Courier Sans";
+  font-style: normal;
+  src: url('/fonts/NotCourierSans.woff') format("woff");
+}
+
+@font-face {
+  font-family: "Minion Pro Display";
+  font-style: normal;
+  src: url('/fonts/MinionProDisplay.otf') format("otf");
+}
+
 
 a:link {
   color: #575657;
