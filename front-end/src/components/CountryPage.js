@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
-import {CSSTransition} from 'react-transition-group'
+import useReactRouter from 'use-react-router'
+
+
+import LoadingSign from './LoadingSign'
+
 
 
 const COUNTRY = gql`
@@ -104,7 +108,7 @@ const InfoText = styled.div`
   padding-right: 2em;
   padding-left: 2em;
   padding-bottom: 2em;
-  line-height: 1.4;
+  line-height: 1.5;
 
   @media (max-width: 768px) {
     font-size: 1.5em;
@@ -116,6 +120,7 @@ const InfoEmphasis = styled.span`
   display: inline-block;
   background: #FEFEFA;
   border-radius: 10px;
+  margin-top: 0.25em;
   padding-left: 0.1em;
   padding-right: 0.1em;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
@@ -127,13 +132,15 @@ function CountryPage({ match }) {
     variables: { code: match.params.countryCode }
   })
 
-  if (loading) return <h1>Loading</h1>
-  if (error) return <h1>Error</h1>
+  const { history, location } = useReactRouter()
+
+  if (loading) return <LoadingSign>Loading</LoadingSign>
+  if (error) return <LoadingSign>Error</LoadingSign>
 
   return(
   <PageContainer>
     <div>
-      <BackButton>All Countries</BackButton>
+      <BackButton onClick={() => history.push('/countries')}>All Countries</BackButton>
       <MarqueeContainer>
         <FirstMarqueeText>
           {data.country.name} {data.country.emoji} {data.country.native} {data.country.emoji}
@@ -143,14 +150,15 @@ function CountryPage({ match }) {
         </SecondMarqueeText>
       </MarqueeContainer>
     </div>
-    <InfoText>
-      <InfoEmphasis>{data.country.name}</InfoEmphasis> is a country in <InfoEmphasis>{data.country.continent.name}</InfoEmphasis>. Their official currency is <InfoEmphasis>{data.country.currency}</InfoEmphasis>.
-    </InfoText>
+    <div>
+      <InfoText>
+        <InfoEmphasis>{data.country.name}</InfoEmphasis> is a country in <InfoEmphasis>{data.country.continent.name}</InfoEmphasis>. Their official currency is <InfoEmphasis>{data.country.currency}</InfoEmphasis>.
+      </InfoText>
 
-    <InfoText>
-      If you'd like to find out more about <InfoEmphasis>{data.country.name}</InfoEmphasis>, you can try calling any valid phone number that starts with <InfoEmphasis>+{data.country.phone}</InfoEmphasis>.
-    </InfoText>
-
+      <InfoText>
+        If you'd like to find out more about <InfoEmphasis>{data.country.name}</InfoEmphasis>, you can try calling any valid phone number that starts with <InfoEmphasis>+{data.country.phone}</InfoEmphasis>.
+      </InfoText>
+    </div>
   </PageContainer>
   )
 }
