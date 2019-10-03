@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
+import {CSSTransition} from 'react-transition-group'
+
 
 const COUNTRY = gql`
   query Country($code: String!) {
@@ -20,9 +22,35 @@ const PageContainer = styled.div`
   padding-top: 2.25em;
 `
 
-// const BackButton = styled.div`
-//
-// `
+const BackButton = styled.div`
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-left: 1em;
+  background: #575657;
+  color: #FEFEFA;
+  padding: 0.25em;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  float: left;
+  transition: all .1s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  z-index: 2;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: relative;
+    width: fit-content;
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 0.5em;
+  }
+`
 
 const MarqueeContainer = styled.div`
   font-family: "IBM Plex Mono Light", monospace;
@@ -77,9 +105,15 @@ const InfoText = styled.div`
   padding-left: 2em;
   padding-bottom: 2em;
   line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+  }
+
 `
 
 const InfoEmphasis = styled.span`
+  display: inline-block;
   background: #FEFEFA;
   border-radius: 10px;
   padding-left: 0.1em;
@@ -97,8 +131,9 @@ function CountryPage({ match }) {
   if (error) return <h1>Error</h1>
 
   return(
-    <PageContainer>
-
+  <PageContainer>
+    <div>
+      <BackButton>All Countries</BackButton>
       <MarqueeContainer>
         <FirstMarqueeText>
           {data.country.name} {data.country.emoji} {data.country.native} {data.country.emoji}
@@ -107,6 +142,7 @@ function CountryPage({ match }) {
            {data.country.name} {data.country.emoji} {data.country.native} {data.country.emoji}
         </SecondMarqueeText>
       </MarqueeContainer>
+    </div>
     <InfoText>
       <InfoEmphasis>{data.country.name}</InfoEmphasis> is a country in <InfoEmphasis>{data.country.continent.name}</InfoEmphasis>. Their official currency is <InfoEmphasis>{data.country.currency}</InfoEmphasis>.
     </InfoText>
