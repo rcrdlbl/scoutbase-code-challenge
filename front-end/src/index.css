@@ -20,6 +20,19 @@ code {
   src: url('/fonts/IBMPlexMono-Light.woff') format("woff");
 }
 
+/* Animations */
+
+.fadein-enter {
+  opacity: 0.01;
+  transform: translateY(100px);
+}
+
+.fadein-enter.fadein-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: .5s ease-in;
+}
+
 
 
 a:link {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import {TransitionGroup} from 'react-transition-group'
+
 
 import CountryListContainer from './CountryListContainer'
 
@@ -60,7 +62,11 @@ class CountriesContainer extends Component {
         <SortLink onClick={() => this.setState({sortBy: "language"})} active={this.state.sortBy === "language" ? true : false}>Language</SortLink>
       </NavContainer>
       <ListContainer>
-        <CountryListContainer sortBy={this.state.sortBy} />
+        <TransitionGroup
+          component={null}
+          >
+          <CountryListContainer sortBy={this.state.sortBy} />
+        </TransitionGroup>
       </ListContainer>
       </>
     )
