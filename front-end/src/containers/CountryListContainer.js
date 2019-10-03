@@ -2,7 +2,9 @@ import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
 import styled from 'styled-components'
+import {CSSTransition} from 'react-transition-group'
 
+import LoadingSign from '../components/LoadingSign'
 import CountryListItem from '../components/CountryListItem'
 
 const COUNTRIES = gql`
@@ -64,8 +66,8 @@ const CountryListContainer = (props) => {
   // Initial Fetching of Country Data
   const { loading, error, data } = useQuery(COUNTRIES)
 
-  if (loading) return <h3>Loading</h3>
-  if (error) return <h3>Error</h3>
+  if (loading) return <LoadingSign>Loading</LoadingSign>
+  if (error) return <LoadingSign>Error</LoadingSign>
 
   // Group retrieved countries
 
@@ -89,12 +91,15 @@ const CountryListContainer = (props) => {
 
   // Return sorted countries
 
+  const dataIn = true
+
   Object.keys(listItems).sort().forEach(function(prop) {
-    results.push(<CountryGroupHeader key={prop}>{prop}</CountryGroupHeader>)
+    results.push(<CSSTransition in={dataIn} key={prop} timeout={500} classNames="fadein"><CountryGroupHeader key={prop}>{prop}</CountryGroupHeader></CSSTransition>)
     listItems[prop].map((country) => (
-      results.push(<CountryListItem key={country.code + prop} country={country}></CountryListItem>)
+      results.push(<CSSTransition in={dataIn} key={country.code + prop} timeout={500} classNames="fadein"><CountryListItem key={country.code + prop} country={country}></CountryListItem></CSSTransition>)
     ))
   })
+
 
   return results
 }
